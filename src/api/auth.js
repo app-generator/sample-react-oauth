@@ -1,19 +1,20 @@
 import axios from "./index";
+import { API_SERVER } from "config/constant";
 
 class AuthApi {
   static Login = (data) => {
-    return axios.post(`${base}/login`, data);
+    return axios.post(`${API_SERVER}/login`, data);
   };
 
   static Register = (data) => {
-    return axios.post(`${base}/register`, data);
+    return axios.post(`${API_SERVER}/register`, data);
   };
 
   static Logout = (data) => {
-    return axios.post(`${base}/logout`, data, { headers: { Authorization: `${data.token}` } });
+    return axios.post(`${API_SERVER}api/users/logout`, data, {
+      headers: { Authorization: `${data.token}` },
+    });
   };
 }
-
-let base = "users";
 
 export default AuthApi;
