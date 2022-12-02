@@ -3,11 +3,15 @@ import { API_SERVER } from "config/constant";
 
 class AuthApi {
   static Login = (data) => {
-    return axios.post(`${API_SERVER}/login`, data);
+    return axios.post(`${API_SERVER}api/users/login`, data);
   };
 
   static Register = (data) => {
-    return axios.post(`${API_SERVER}/register`, data);
+    return axios.post(`${API_SERVER}api/users/register`, data);
+  };
+
+  static Authorize = (code) => {
+    return axios.get(`${API_SERVER}api/sessions/oauth/github?code=${code}`);
   };
 
   static Logout = (data) => {
