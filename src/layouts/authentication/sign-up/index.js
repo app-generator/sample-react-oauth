@@ -102,7 +102,6 @@ function SignUp() {
             </SoftTypography>
           </SoftBox>
           <SoftBox display="flex" flexDirection="column" alignItems="center" mb={2}>
-            <Socials />
             <GithubSocial />
           </SoftBox>
           <Separator />
