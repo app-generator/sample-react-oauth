@@ -104,9 +104,8 @@ function SignIn() {
         code: newUrl[1],
       };
 
-      fetch(`${API_SERVER}api/sessions/oauth/github?code=${requestData.code}`)
-        .then((response) => response.json())
-        .then((data) => {
+      AuthApi.Authorize(requestData.code)
+        .then(({ data }) => {
           if (data.user) {
             setUser(JSON.stringify(data.user));
             localStorage.setItem("user", JSON.stringify(data.user));
